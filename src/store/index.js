@@ -37,19 +37,29 @@ export default new Vuex.Store({
 			state.usuarios = payload;
 		},
 		SET_TODO(state, payload) {
-			state.todo = payload;
+			const probando = state.posts.map((item, index) => {
+				for (let i = 0; i < state.usuarios.length; i++) {
+					if (item.userId == state.usuarios[i].id) {
+						item.userId = state.usuarios[i].username;
+					}
+				}
+				return item;
+			});
+			state.todo = probando;
+			state.stado = true;
 		},
 	},
 	actions: {
 		async cargarPosts({ commit }) {
-			await axios
+			const posts = await axios
 				.get(`https://jsonplaceholder.typicode.com/posts`)
 				.then((res) => {
-					commit('SET_POSTS', res.data);
+					return res.data;
 				})
 				.catch((e) => {
 					console.log(e);
 				});
+			commit('SET_POSTS', posts);
 		},
 		cargarComentario({ commit }, payload) {
 			axios
@@ -90,8 +100,8 @@ export default new Vuex.Store({
 		loading({ commit }) {
 			commit('LOADING', payload);
 		},
-		todoElContenido({ commit }, payload) {
-			commit('SET_TODO', payload);
+		todoElContenido({ commit }) {
+			commit('SET_TODO');
 		},
 	},
 	modules: {},

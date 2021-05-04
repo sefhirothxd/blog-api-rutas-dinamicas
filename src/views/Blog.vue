@@ -14,7 +14,7 @@
         </thead>
         <tbody>
           <tr
-            v-for="(item, index) in todo"
+            v-for="(item, index) in posts"
             :key="index"
             class="border-2 border-white"
           >
@@ -37,6 +37,7 @@
         </tbody>
       </table>
     </div>
+    <div v-else>Cargando....!</div>
   </div>
 </template>
 
@@ -57,7 +58,7 @@ export default {
   },
   methods: {
     ...mapActions(["todoElContenido"]),
-    async creandoPost() {
+    creandoPost() {
       const probando = this.posts.map((item, index) => {
         for (let i = 0; i < this.usuarios.length; i++) {
           if (item.userId == this.usuarios[i].id) {
@@ -70,9 +71,7 @@ export default {
       this.todoElContenido(probando);
     },
   },
-  created() {
-    this.creandoPost();
-  },
+  created() {},
 };
 </script>
 

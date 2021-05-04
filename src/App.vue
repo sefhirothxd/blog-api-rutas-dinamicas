@@ -10,12 +10,7 @@ import { mapActions } from "vuex";
 
 export default {
   methods: {
-    ...mapActions([
-      "cargarPosts",
-      "cargarUsuarios",
-      "cargarComentarios",
-      "todoElContenido",
-    ]),
+    ...mapActions(["cargarPosts", "cargarUsuarios", "cargarComentarios"]),
   },
   created() {
     this.cargarPosts();
