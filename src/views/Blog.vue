@@ -1,9 +1,9 @@
 <template>
-  <div class="">
+  <div class="min-h-screen">
     <div class="text-center py-16 text-2xl font-semibold">
       <Titulo texto="Lista de Post publicados - Con rutas dinamicas" />
     </div>
-    <div class="pb-20">
+    <div class="pb-20" v-if="stado">
       <table class="xs:table-auto table-fixed">
         <thead>
           <tr>
@@ -53,7 +53,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["posts", "comentarios", "usuarios", "todo"]),
+    ...mapState(["posts", "comentarios", "usuarios", "todo", "stado"]),
   },
   methods: {
     ...mapActions(["todoElContenido"]),

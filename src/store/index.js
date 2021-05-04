@@ -17,6 +17,7 @@ export default new Vuex.Store({
 	mutations: {
 		SET_POSTS(state, payload) {
 			state.posts = payload;
+			state.stado = true;
 		},
 		SET_POST(state, payload) {
 			const postSelect = state.posts.filter((post) => {
@@ -85,6 +86,9 @@ export default new Vuex.Store({
 				.catch((e) => {
 					console.log(e);
 				});
+		},
+		loading({ commit }) {
+			commit('LOADING', payload);
 		},
 		todoElContenido({ commit }, payload) {
 			commit('SET_TODO', payload);
