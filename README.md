@@ -2,7 +2,7 @@
 se realiza una simulacion de blog usando una api publica, ademas se implementa vuex y rutas dinamicas para acceder al contenido de las publicaciones.
 
 ## Link Demo
-see [Link](https://blog-api-rutasdinamicas.netlify.app/blog/70)
+see [Link](https://blog-api-rutasdinamicas.netlify.app)
 
 ## Project setup
 ```
